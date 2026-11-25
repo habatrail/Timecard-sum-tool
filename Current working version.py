@@ -174,6 +174,7 @@ def main():
 
     rows = []          # list of (entries, hints, total_lbl, dec_lbl, status_lbl)
     all_entries = []
+    all_vars = []      # must keep StringVars alive, or their traces vanish
 
     def recalc(*_):
         week = 0
@@ -215,6 +216,7 @@ def main():
         for p in range(len(PUNCHES)):
             var = tk.StringVar()
             var.trace_add("write", recalc)
+            all_vars.append(var)
             e = tk.Entry(card, textvariable=var, width=9, justify="center",
                          font=(FONT, 11), relief="flat", bg=FIELD, fg=TEXT,
                          insertbackground=TEXT, highlightthickness=1,
