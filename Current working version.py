@@ -221,6 +221,7 @@ def main():
                          highlightbackground=LINE, highlightcolor=ACCENT)
             e.grid(row=r, column=1 + p, padx=8, pady=(6, 0), ipady=4)
             e.bind("<Return>", focus_next)
+            e.bind("<KP_Enter>", focus_next)   # numpad Enter
             e.bind("<FocusIn>", lambda ev: ev.widget.select_range(0, "end"))
             h = tk.Label(card, text="", bg=bg_row, fg=MUTED, font=(FONT, 8))
             h.grid(row=r + 1, column=1 + p, pady=(0, 4))
